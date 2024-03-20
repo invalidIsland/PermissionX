@@ -1,6 +1,15 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'com.vanniktech.maven.publish' version '0.28.0'
+}
+
+import com.vanniktech.maven.publish.SonatypeHost
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    signAllPublications()
 }
 
 android {
@@ -31,7 +40,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
